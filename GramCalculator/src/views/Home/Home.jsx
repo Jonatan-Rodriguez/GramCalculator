@@ -22,7 +22,6 @@ const Home = () => {
             const resultTrunc = Math.trunc(result);
             setResult(resultTrunc);
         }
-
         if (selectCalculator == "2") {
             let suma = unKg * inputPrice;
             result = suma / priceAlbondiga;
@@ -41,19 +40,17 @@ const Home = () => {
         const select = document.getElementById("selectCalculator").value;
 
         setSelectCalculator(select);
-        console.log(select);
-        console.log(event.target.value);
     }
 
     return (
         <ContainerHome>
-            <div class="card">
+            <div className="card">
                 <div className='card-info'>
                     <div className='containerSelect'>
                         <span className='selectText'>-Seleccion-</span>
                         <select className='select' name="" id="selectCalculator" onChange={handleSelect}>
-                            <option value="1">Milanesa</option>
-                            <option value="2">Albondiga</option>
+                            <option value="1">Milanesas</option>
+                            <option value="2">Albondigas</option>
                             <option value="3">Medallones</option>
                         </select>
                     </div>
