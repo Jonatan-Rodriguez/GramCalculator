@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ContainerHome } from './home.styled';
 
 const Home = () => {
     const [selectCalculator, setSelectCalculator] = useState("1");
@@ -18,18 +19,21 @@ const Home = () => {
         if (selectCalculator == "1") {
             let suma = unKg * inputPrice;
             result = suma / priceMila;
-            setResult(result);
+            const resultTrunc = Math.trunc(result);
+            setResult(resultTrunc);
         }
 
         if (selectCalculator == "2") {
             let suma = unKg * inputPrice;
             result = suma / priceAlbondiga;
-            setResult(result);
+            const resultTrunc = Math.trunc(result);
+            setResult(resultTrunc);
         }
         if (selectCalculator == "3") {
             let suma = unKg * inputPrice;
             result = suma / priceMedallon;
-            setResult(result);
+            const resultTrunc = Math.trunc(result);
+            setResult(resultTrunc);
         }
     }
 
@@ -42,32 +46,35 @@ const Home = () => {
     }
 
     return (
-        <>
-            <div>
-                <div>
-                    <span>-Seleccion-</span>
-                    <select name="" id="selectCalculator" onChange={handleSelect}>
-                        <option value="1">Milanesa</option>
-                        <option value="2">Albondiga</option>
-                        <option value="3">Medallones</option>
-                    </select>
-                </div>
-                {/* <div>
-                    <span>Peso por gramo</span>
-                    <input type="text" name="" id="inputGram" />
-                </div> */}
-                <div>
-                    <span>Pesos</span>
-                    <input type="text" name="" id="inputPrice" />
-                </div>
-                <div>
-                    <button onClick={calculator}>Calcular</button>
-                </div>
-                <div>
-                    <span>Son {result} gramos.</span>
+        <ContainerHome>
+            <div class="card">
+                <div className='card-info'>
+                    <div className='containerSelect'>
+                        <span className='selectText'>-Seleccion-</span>
+                        <select className='select' name="" id="selectCalculator" onChange={handleSelect}>
+                            <option value="1">Milanesa</option>
+                            <option value="2">Albondiga</option>
+                            <option value="3">Medallones</option>
+                        </select>
+                    </div>
+                    {/* <div>
+                        <span>Peso por gramo</span>
+                        <input type="text" name="" id="inputGram" />
+                    </div> */}
+                    <div className='containerInput'>
+                        <span className='inputText'>Pesos</span>
+                        <input className='input' type="text" name="" id="inputPrice" />
+                    </div>
+                    <div className='containerBtn'>
+                        <button className='btn' onClick={calculator}>Calcular</button>
+                    </div>
+                    <div className='containerResult'>
+                        <span className='result'><b>{result}</b></span>
+                        <span className='resultGram'> gramos</span>
+                    </div>
                 </div>
             </div>
-        </>
+        </ContainerHome>
     )
 }
 
